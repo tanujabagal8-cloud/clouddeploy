@@ -39,3 +39,6 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t clouddeploy:latest .
+        permissions:
+               contents: read
+               packages: write
