@@ -1,4 +1,4 @@
-name: CloudDeploy CI
+name: CloudDeploy CI/CD
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
 
 jobs:
   test:
+    name: Run Python Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -26,3 +27,15 @@ jobs:
 
       - name: Run tests
         run: pytest -v
+
+  docker-build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t clouddeploy:latest .
