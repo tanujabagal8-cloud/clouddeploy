@@ -1,11 +1,11 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 
 
 @app.route("/")
 def home():
-    return "Welcome to CloudDeploy!"
+    return render_template("index.html")
 
 
 @app.route("/health")
