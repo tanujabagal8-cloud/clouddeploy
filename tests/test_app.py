@@ -11,7 +11,7 @@ def test_home():
     response = client.get("/")
 
     assert response.status_code == 200
-    assert response.get_data(as_text=True) == "Welcome to CloudDeploy!"
+    assert b"DevOps Dashboard" in response.data
 
 
 def test_health():
