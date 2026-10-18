@@ -10,7 +10,7 @@ name: CloudDeploy CI/CD Pipeline
 
 permissions:
   contents: read
-
+  
 jobs:
   test:
     name: Run Python Tests
